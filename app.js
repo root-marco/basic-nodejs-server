@@ -1,6 +1,7 @@
 import http from 'http';
 import fs from 'fs';
-const port = 3000;
+
+const PORT = 3000;
 
 const server = http.createServer((req, res) => {
 
@@ -16,17 +17,19 @@ const server = http.createServer((req, res) => {
 		} else {
 			res.write(data);
 		}
+
 		res.end();
+		
 	});
 
 });
 
-server.listen(port, (error) => {
+server.listen(PORT, (error) => {
 	
 	if (error) {
 		console.log(`Something went wrong ${error}`);
 	} else {
-		console.log(`Server running on port ${port}`);
+		console.log(`Server running on port ${PORT}`);
 	}
-	
+
 });
