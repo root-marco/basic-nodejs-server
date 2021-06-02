@@ -2,16 +2,17 @@
   "name": "passport-system",
   "version": "1.0.0",
   "main": "index.js",
-	"type": "module",
+  "type": "module",
   "repository": "git@github.com:root-marco/basic-nodejs-server.git",
   "author": "slowed <rootslowed@gmail.com>",
   "license": "MIT",
-	"scripts": {
-		"devStart": "nodemon server.js"
-	},
+  "scripts": {
+    "devStart": "nodemon server.js"
+  },
   "dependencies": {
     "ejs": "^3.1.6",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "path": "^0.12.7"
   },
   "devDependencies": {
     "dotenv": "^10.0.0",
