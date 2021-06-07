@@ -29,8 +29,11 @@ export async function postRegister(req, res) {
     });
   }
 
-  const newUser = new User(body);
-  newUser.password = await bcrypt.hash(newUser.password, 10);
+  const newUser = new User({
+    name: body.name,
+    email: body.email,
+    password: await bcrypt.hash(body.password, 10),
+  });
 
   try {
     await newUser.save();
