@@ -1,5 +1,6 @@
-import User from "../models/User.js";
+import passport from 'passport';
 import bcrypt from "bcrypt";
+import User from "../models/User.js";
 
 export async function getLogin(req, res) {
 
@@ -13,9 +14,13 @@ export async function getRegister(req, res) {
 
 }
 
-export async function postLogin(req, res) {
+export async function postLogin(req, res, next) {
 
-
+	passport.authenticate("local", {
+		successRedirect: "/",
+		failureRedirect: "/user/login",
+		failureFlash: true,
+	})(req, res, next);
 
 }
 
@@ -42,5 +47,12 @@ export async function postRegister(req, res) {
     console.error(error);
     res.redirect("/user/register");
   }
+
+}
+
+export async function deleteLogout(req, res) {
+
+  req.logOut();
+  res.redirect("/user/login");
 
 }
